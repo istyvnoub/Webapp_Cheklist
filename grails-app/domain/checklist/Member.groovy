@@ -15,7 +15,7 @@ class Member {
      Date dateCreated
     Date   lastUpdate
 
-    //static hasMany = [task:Task,tasklist:Tasklist]
+    static hasMany = [tasks:Task]
 
     static constraints = {
         firstName blank: false
@@ -28,5 +28,9 @@ class Member {
     }
     def beforeUpdate(){
         this.password=this.password.encodeAsMD5()
+    }
+    static mapping={
+        version(false)
+        tasks(cascade: 'all-delete-orphan')
     }
 }
