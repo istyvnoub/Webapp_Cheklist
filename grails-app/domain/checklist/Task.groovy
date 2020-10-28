@@ -3,16 +3,28 @@ package checklist
 import com.webapp.cl.Globalconfig
 
 class Task {
-    String text
+    String taskName
     Date date_of_last_work_through=new Date()
-    String state= Globalconfig.STATUS.NOT_DONE
+    String description
+    Status state
+
+
+
+    enum Status{
+        not_done_and_to_do,
+        not_done_and_not_to_do,
+        done_but_not_sucessful,
+        done
+
+
+    }
 
 
     //static hasMany = [tasklist:Tasklist]
     static constraints = {
-        text blank: false
+        taskName blank: false
         date_of_last_work_through nullable: true
-
+        description blank: false
         state blank: false
 
     }

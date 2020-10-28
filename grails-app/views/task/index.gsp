@@ -14,6 +14,7 @@
             <tr>
                 <g:sortableColumn property="date" title="${g.message(code: "date")}"/>
                 <g:sortableColumn property="text" title="${g.message(code: "text")}"/>
+                <g:sortableColumn property="description" title="${g.message(code: "description")}"/>
                 <g:sortableColumn property="status" title="${g.message(code: "status")}"/>
                 <th class="action-row"><g:message code="action"/></th>
             </tr>
@@ -22,8 +23,10 @@
             <g:each in="${listtask}" var="info">
                 <tr>
                     <td>${info?.date_of_last_work_through}</td>
-                    <td>${info?.text}</td>
+                    <td>${info?.taskName}</td>
+                    <td>${info?.description}</td>
                     <td>${info?.state}</td>
+
 
                     %{--Table Actions --}%
                     <td>
