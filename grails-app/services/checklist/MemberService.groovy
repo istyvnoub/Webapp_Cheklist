@@ -2,12 +2,17 @@ package checklist
 
 import com.webapp.cl.AppUtil
 import com.webapp.cl.Globalconfig
+import grails.gorm.transactions.Transactional
+import grails.web.api.WebAttributes
 import grails.web.servlet.mvc.GrailsParameterMap
 import org.hibernate.engine.spi.ManagedEntity
 import org.hibernate.validator.internal.util.privilegedactions.GetClassLoader
 
-
+@Transactional
 class MemberService {
+    def serviceMethod() {
+
+    }
 
     def save(GrailsParameterMap params){
         Member member= new Member(params)

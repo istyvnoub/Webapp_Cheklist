@@ -2,10 +2,14 @@ package checklist
 
 import com.webapp.cl.AppUtil
 import com.webapp.cl.Globalconfig
+import grails.gorm.transactions.Transactional
 import grails.web.servlet.mvc.GrailsParameterMap
 
-
+@Transactional
 class TaskService {
+    def serviceMethod() {
+
+    }
 
     def save(GrailsParameterMap params){
         Task task= new Task(params)

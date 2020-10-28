@@ -21,9 +21,9 @@
             <tbody>
             <g:each in="${listtask}" var="info">
                 <tr>
-                    <td>${info?.date}</td>
+                    <td>${info?.date_of_last_work_through}</td>
                     <td>${info?.text}</td>
-                    <td>${info?.status}</td>
+                    <td>${info?.state}</td>
 
                     %{--Table Actions --}%
                     <td>
