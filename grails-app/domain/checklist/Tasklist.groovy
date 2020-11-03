@@ -3,12 +3,17 @@ package checklist
 class Tasklist {
 
     String name
-    Member member
+    String description
+    Date dateOfLastWorkThrough = new Date()
 
-   // static belongsTo = Task
-
+    static hasMany = [tasks:Task]
 
     static constraints = {
-
+         name blank: false
+        description blank: false
+        dateOfLastWorkThrough nullable: true
+    }
+    static mapping = {
+        version (false)
     }
 }

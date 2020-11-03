@@ -8,8 +8,7 @@ class Task {
     String description
     Status state
 
-
-
+    static belongsTo = [tasklist:Tasklist]
     enum Status{
         not_done_and_to_do,
         not_done_and_not_to_do,
@@ -28,5 +27,8 @@ class Task {
         state blank: false
 
     }
+   static mapping = {
+       version(false)
 
+   }
 }
