@@ -8,3 +8,7 @@
     <g:textArea name="description" rows="5" cols="40" class="form-control" value="${task?.description}" placeholder="Please Enter Description of your Task"/>
 
 </div>
+<div class="form-group">
+    <label><g:message code="task.list.name"/></label>
+    <UIHelper:tasklist value="${task?.tasklist*.id}"/>
+</div>

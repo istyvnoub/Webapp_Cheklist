@@ -22,7 +22,7 @@
             <tbody>
             <g:each in="${grouptask}" var="group">
                 <tr>
-                    <td>${group?.name}</td>
+                 <td><g:link controller="task" action="index"> ${group?.name} </g:link></td>
                     <td>${group?.description}</td>
                     <td>
                         <div class="btn-group">

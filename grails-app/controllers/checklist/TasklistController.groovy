@@ -11,7 +11,7 @@ class TasklistController {
     def details(Integer id){
         def response=tasklistService.getbyId(id)
         if(!response){
-            redirect(controller: "task",action: "index")
+            redirect(controller: "tasklist",action: "index")
         }else {
             [grouptask: response]
         }

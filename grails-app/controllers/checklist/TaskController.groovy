@@ -16,6 +16,19 @@ class TaskController {
             [task:response]
         }
     }
+    def edit(){
+        if (flash.redirectParams) {
+            [customer: flash.redirectParams]
+        } else {
+            def response = TaskService.getById()
+            if (!response) {
+               // flash.message = AppUtil.infoMessage(g.message(code: "invalid.entity"), false)
+                redirect(controller: "Task", action: "index")
+            } else {
+                [task: response]
+            }
+        }
+    }
 
     def create(){
         [task: flash.redirectParams]

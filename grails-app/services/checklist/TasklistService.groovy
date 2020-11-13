@@ -61,6 +61,13 @@ class TasklistService {
         }
         taskgroup.save(flush:true)
     }
+    def getGroupList(){
+        return Tasklist.createCriteria().list {
+
+            eq("Task",Task)
+
+        }
+    }
 
     def delete(Tasklist tasklist){
         tasklist.delete(flush: true)

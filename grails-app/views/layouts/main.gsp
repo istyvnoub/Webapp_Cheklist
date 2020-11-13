@@ -35,10 +35,7 @@
 
         <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
             <ul class="list-group">
-                <li class="list-group-item"><a href="#">Taskslist</a></li>
-                <li class="list-group-item"><a href="#">Task</a></li>
-                <li class="list-group-item"><a href="#">Contact</a></li>
-                <admin:leftNavigation/>
+                <UIHelper:leftNavigation/>
             </ul>
         </nav>
 

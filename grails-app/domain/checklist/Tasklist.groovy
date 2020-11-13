@@ -12,6 +12,7 @@ class Tasklist {
          name blank: false
         description blank: false
         dateOfLastWorkThrough nullable: true
+
     }
     static mapping = {
         version (false)
