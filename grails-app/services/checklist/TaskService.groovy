@@ -26,6 +26,9 @@ class TaskService {
         }
         return response
     }
+    def getById(Serializable id){
+        return Task.get(id);
+    }
 
     def update(Task task, GrailsParameterMap params){
         task.properties=params

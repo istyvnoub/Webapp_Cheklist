@@ -29,11 +29,29 @@ class TaskController {
             }
         }
     }
+    def update() {
+        def response = TaskService.getById(params.id);
+        if (!response){
+            flash.message = AppUtil.infoMessage(g.message(code: "invalid.entity"), false)
+            redirect(controller: "member", action: "index")
+        }else{
+            response = TaskService.update(response, params)
+            if (!response.isSuccess){
+                flash.redirectParams = response.model
+                flash.message = AppUtil.infoMessage(g.message(code: "unable.to.update"), false)
+                redirect(controller: "member", action: "edit")
+            }else{
+                flash.message = AppUtil.infoMessage(g.message(code: "updated"))
+                redirect(controller: "member", action: "index")
+            }
+        }
+    }
 
     def create(){
         [task: flash.redirectParams]
     }
     def save() {
+        println "Taskcontroller save "+params;
         def response = taskService.save(params)
         if (!response.isSuccess) {
             flash.redirectParams = response.model

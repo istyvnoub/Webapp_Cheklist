@@ -24,7 +24,8 @@ class Task {
         taskName blank: false
         date_of_last_work_through nullable: true
         description blank: false
-        state blank: false
+        state (blank: false,nullable:true)
+        tasklist nullable: true
 
     }
    static mapping = {

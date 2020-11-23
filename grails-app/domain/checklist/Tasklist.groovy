@@ -7,6 +7,7 @@ class Tasklist {
     Date dateOfLastWorkThrough = new Date()
 
     static hasMany = [tasks:Task]
+   // static mappedBy = [tasks: 'parentTask']
 
     static constraints = {
          name blank: false

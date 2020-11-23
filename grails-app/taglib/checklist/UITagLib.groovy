@@ -24,8 +24,8 @@ class UITagLib {
 
 
     }
-    def tasklist={ attrs, body ->
+   /* def tasklist={ attrs, body ->
         String name = attrs.name ?: "tasklist"
         out << g.select(class:"form-control", multiple: "multiple", optionValue: "name", optionKey: "id", value: attrs.value, name: name, from: tasklistservice.getGroupList())
-    }
+    }*/
 }
