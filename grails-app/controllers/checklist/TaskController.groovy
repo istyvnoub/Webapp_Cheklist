@@ -16,11 +16,12 @@ class TaskController {
             [task:response]
         }
     }
-    def edit(){
+    def edit(Integer id){
         if (flash.redirectParams) {
-            [customer: flash.redirectParams]
+            [task: flash.redirectParams]
         } else {
-            def response = TaskService.getById()
+
+            def response = taskService.getById(id)
             if (!response) {
                // flash.message = AppUtil.infoMessage(g.message(code: "invalid.entity"), false)
                 redirect(controller: "Task", action: "index")
@@ -30,19 +31,19 @@ class TaskController {
         }
     }
     def update() {
-        def response = TaskService.getById(params.id);
+        def response = taskService.getById(params.id);
         if (!response){
-            flash.message = AppUtil.infoMessage(g.message(code: "invalid.entity"), false)
-            redirect(controller: "member", action: "index")
+            //flash.message = AppUtil.infoMessage(g.message(code: "invalid.entity"), false)
+            redirect(controller: "task", action: "index")
         }else{
-            response = TaskService.update(response, params)
+            response = taskService.update(response, params)
             if (!response.isSuccess){
-                flash.redirectParams = response.model
-                flash.message = AppUtil.infoMessage(g.message(code: "unable.to.update"), false)
-                redirect(controller: "member", action: "edit")
+                //flash.redirectParams = response.model
+                //flash.message = AppUtil.infoMessage(g.message(code: "unable.to.update"), false)
+                redirect(controller: "task", action: "edit")
             }else{
-                flash.message = AppUtil.infoMessage(g.message(code: "updated"))
-                redirect(controller: "member", action: "index")
+              //  flash.message = AppUtil.infoMessage(g.message(code: "updated"))
+                redirect(controller: "task", action: "index")
             }
         }
     }
@@ -60,5 +61,17 @@ class TaskController {
             redirect(controller: "task", action: "index")
         }
 
+    }
+    def delete(Integer id){
+        def response=taskService.getById(id)
+
+        if(!response){
+            redirect(controller:"task",action:"index")
+
+
+        }else{
+            response = taskService.delete(response)
+        }
+        redirect(controller: "task",action: "index")
     }
 }
