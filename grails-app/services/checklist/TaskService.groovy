@@ -26,7 +26,7 @@ class TaskService {
         }
         return response
     }
-    def getById(Serializable id){
+   def getById(Serializable id){
         return Task.get(id);
     }
 
@@ -41,9 +41,9 @@ class TaskService {
         }
         return response
     }
-    def getbyId(Serializable id){ //To get Member by Id
+    /*def getbyId(Serializable id){ //To get Member by Id
         return Task.get(id)
-    }
+    }*/
     def list(GrailsParameterMap params){
         params.max= params.max ?: Globalconfig.itemsPerpage()
         List<Task> listtask = Task.createCriteria().list(params){

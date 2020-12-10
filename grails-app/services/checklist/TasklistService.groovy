@@ -40,7 +40,7 @@ class TasklistService {
         return response
     }
     def getbyId(Serializable id){ //To get Member by Id
-        return Task.get(id)
+        return Tasklist.get(id)
     }
     def list(GrailsParameterMap params){
         params.max= params.max ?: Globalconfig.itemsPerpage()
