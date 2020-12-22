@@ -1,0 +1,58 @@
+:icons: font
+:imagesdir: common/img/
+:docinfodir: common/meta/
+:linkcss:
+
+:docinfo1:
+// In generated HTML this is transformed
+// to <meta name="description" content="..."/>
+:description: Sample document with custom header and footer parts.
+// In generated HTML this is transformed
+// to <meta name="keywords" content="..."/>
+:keywords: Asciidoctor, header, footer, docinfo
+
+== Technische Spezifikation einer Checklisten-Webapplikation
+Autoren und Inhalte: Achim Bloch-Späth<a.bloch-spaeth@gsi.de>, Stephan Reimann<s.reimann@gsi.de>, Martin Stein<m.stein@gsi.de>, 
+v1.0, 2020-11-11
+:toc:
+
+
+=== Allgemeine Festlegungen und Definitionen
+Die gewünschte Checklisten-Webapplikation, von nun an kurz `checklist-webapp` genannt, hat zwei Basis-Abstraktionen (Domains), nähmlich die:
+
+* `checklist` und die
+* `task`
+
+Grundlegend lässt sich sagen, dass eine `checklist` 0..n ``task``s enthalten kann.
+Die Erfüllung aller ``task``s in einer `checklist` führt letztendlich zu einem Zustand, in dem man die `checklist` als abgearbeitet bezeichnen kann.
+Auf dem Weg zur Abarbeitung einer `checklist`, können die `checklist` selbst, als auch die ``task``s weitere Zustände einnehmen, auf die im Folgenden noch eingegangen wird.
+
+
+==== Checklist
+
+Eine `checklist` ist quasi ein Behälter für ``task``s. 
+Die ``task``s können in einer `checklist` geordnet werden, z.B. nach ihrer Priorität, ihrem Zustand oder dem Datum ihrer letzten Bearbeitung.
+Die `checklist` wird wahrscheinlich ein Domain mit recht geringen Aufgaben.
+Da eine `task` eine `checklist` enthalten kann, gehen die meisten Abstraktionen und Funktion in die Domain `task` ein.
+
+
+
+==== Task
+Die Domain `task` nimmt in der `checklist-webapp` eine zentrale Stellung ein.
+Die Grundidee ist, dass fast alle zu bewältigen Aufgaben sich in Unteraufgaben (``task``s) aufbrechen lassen.
+
+[[anchor-0]]
+.Diagram 1. Tasks depend on Tasks
+image:tasks_object_in_time.gif[tasks_object_in_time,950,350,role="bottom"]
+
+
+
+Die Unteraufgaben (``task``s) sind in einer `checklist` und zu jeder `task` gehört eine `checklist`.
+Das Ganze kann man in einem UML-Klassendiagramm wie folgt visualisieren.
+
+
+
+
+
+
+===== Level 3 Section Title
