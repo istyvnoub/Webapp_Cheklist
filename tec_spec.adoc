@@ -43,7 +43,7 @@ Die Grundidee ist, dass fast alle zu bewältigen Aufgaben sich in Unteraufgaben 
 
 [[anchor-0]]
 .Diagram 1. Tasks depend on Tasks
-image:tasks_object_in_time.gif[tasks_object_in_time,950,250,role="bottom"]
+image:tasks_object_in_time.gif[tasks_object_in_time,role="bottom"]
 
 
 
