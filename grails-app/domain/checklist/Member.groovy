@@ -15,7 +15,7 @@ class Member {
      Date dateCreated
     Date   lastUpdate
 
-    static hasMany = [tasks:Task]
+    //static hasMany = [tasks:Task]
 
     static constraints = {
         firstName blank: false

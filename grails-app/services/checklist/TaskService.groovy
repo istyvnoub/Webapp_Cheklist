@@ -11,10 +11,12 @@ class TaskService {
 
     }
 
+
     def save(GrailsParameterMap params){
         Task task= new Task(params)
         def response= AppUtil.saveResponse(false,task)
         if(task.validate()){
+
             task.save(flush:true)
             if(!task.hasErrors()){
                 response.isSuccess=true

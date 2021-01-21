@@ -11,7 +11,7 @@
             <div class="btn-group">
                 <g:form controller="task" action="index" method="GET">
                     <div class="input-group" id="search-area">
-                        <g:select name="colName" class="form-control" from="[name:'Text']" value="${params?.colName}" optionKey="key" optionValue="value"/>
+                        <g:select name="colName" class="form-control" from="[taskName:'taskName',description: 'Description']" value="${params?.colName}" optionKey="key" optionValue="value"/>
                         <g:textField name="colValue" class="form-control" value="${params?.colValue}"/>
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="submit">Search</button>
@@ -42,7 +42,7 @@
             <g:each in="${listtask}" var="info">
                 <tr>
                     <td>${info?.date_of_last_work_through}</td>
-                    <td>${info?.taskName}</td>
+                <g:link controller="task" action="create"><td> ${info?.taskName}</td></g:link>
                     <td>${info?.description}</td>
                     <td>${info?.state}</td>
 

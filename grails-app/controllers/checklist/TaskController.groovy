@@ -9,7 +9,7 @@ class TaskController {
     }
 
     def details(Integer id){
-        def response=taskService.getbyId(id)
+        def response=taskService.getById(id)
         if(!response){
             redirect(controller: "task",action: "index")
         }else {

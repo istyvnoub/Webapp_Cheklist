@@ -10,7 +10,9 @@ class UITagLib {
 
     def leftNavigation = { attrs, body ->
         List navigations = [
-                [controller: "Tasklist", action: "index",name:"task.list"]
+
+                [controller: "Task", action: "index",name:"Tasklist"],
+                [controller: "Task",action:"create", name:"CreateTask"]
 
         ]
 
