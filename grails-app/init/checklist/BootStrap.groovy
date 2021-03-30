@@ -21,7 +21,6 @@ class BootStrap {
             def subtask=new Task(taskName: "subtask1",date_of_last_work_throuh: new Date(),description: "follow ur dream" ,state: Task.Status.not_done_and_to_do).save(failonError:true);
             def subtask1=new Task(taskName: "subtask2",date_of_last_work_throuh: new Date(),description: "follow ur dream" ,state: Task.Status.not_done_and_to_do).save(failonError:true);
             def tasklist=new Tasklist(name:"listroot",dateOfLastWorkThrough: new Date(),description: "test",parent: task,tasks: [subtask,subtask1]).save(failonErr:true);
-
         }
 
 

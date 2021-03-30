@@ -12,6 +12,11 @@ class TasklistService {
 
     }
 
+    /**
+     *save the Task when ist has been validate
+     * @param params list of parameter of the Tasklis
+     * @return
+     */
     def save(GrailsParameterMap params){
         Tasklist tasklist= new Tasklist(params)
         def response= AppUtil.saveResponse(false,tasklist)
@@ -27,7 +32,12 @@ class TasklistService {
         }
         return response
     }
-
+/**
+ * update the list.But first they must respect the constraints created in the domain.
+ * @param tasklist corresponding
+ * @param params corresponding of the Tasklist
+ * @return
+ */
     def update(Tasklist tasklist, GrailsParameterMap params){
         tasklist.properties=params
         def response=AppUtil.saveResponse(false,tasklist)
@@ -39,6 +49,12 @@ class TasklistService {
         }
         return response
     }
+
+    /**
+     * Get id of the Member
+     * @param id
+     * @return id
+     */
     def getbyId(Serializable id){ //To get Member by Id
         return Tasklist.get(id)
     }
@@ -54,6 +70,10 @@ class TasklistService {
         }
         return [list:listtask,count:Tasklist.count()]
     }
+    def addTask (Task task,GrailsParameterMap params){
+        List<Tasklist> checklist= Tasklist.createCriteria().list (params)
+        checklist.tasks.add(Task);
+    }
     def cleanTasklistbyId(Integer id){
         Tasklist taskgroup = Tasklist.get(id)
         taskgroup.task.each {task ->
@@ -68,7 +88,11 @@ class TasklistService {
 
         }
     }
-
+/**
+ * delete Tasklist
+ * @param tasklist
+ * @return
+ */
     def delete(Tasklist tasklist){
         tasklist.delete(flush: true)
 

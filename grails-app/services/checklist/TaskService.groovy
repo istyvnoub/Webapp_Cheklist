@@ -10,7 +10,11 @@ class TaskService {
     def serviceMethod() {
 
     }
-
+    /**
+     *Save Member with their parameter.But first they must respect the constraints created in the domain.
+     * @param params
+     * @return
+     */
 
     def save(GrailsParameterMap params){
         Task task= new Task(params)
@@ -31,6 +35,12 @@ class TaskService {
    def getById(Serializable id){
         return Task.get(id);
     }
+/**
+ * update the list.But first they must respect the constraints created in the domain.
+ * @param tasklist corresponding
+ * @param params corresponding of the Tasklist
+ * @return
+ */
 
     def update(Task task, GrailsParameterMap params){
         task.properties=params
@@ -46,6 +56,12 @@ class TaskService {
     /*def getbyId(Serializable id){ //To get Member by Id
         return Task.get(id)
     }*/
+
+    /**
+     * list of member
+     * @param params parameter of the corresponding member
+     * @return list of Member
+     */
     def list(GrailsParameterMap params){
         params.max= params.max ?: Globalconfig.itemsPerpage()
         List<Task> listtask = Task.createCriteria().list(params){
@@ -58,6 +74,12 @@ class TaskService {
         }
         return [list:listtask,count:Task.count()]
     }
+
+    /**
+     * delete Tasklist
+     * @param tasklist
+     * @return
+     */
 
     def delete(Task task){
         task.delete(flush: true)

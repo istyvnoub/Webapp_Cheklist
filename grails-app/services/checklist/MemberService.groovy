@@ -13,7 +13,11 @@ class MemberService {
     def serviceMethod() {
 
     }
-
+    /**
+     *Save Member with their parameter.But first they must respect the constraints created in the domain.
+     * @param params
+     * @return
+     */
     def save(GrailsParameterMap params){
         Member member= new Member(params)
         def response= AppUtil.saveResponse(false,member)
@@ -25,6 +29,14 @@ class MemberService {
         }
         return response
     }
+
+    /**
+     * Update member with corresponding parameter.But first they must respect the constraints created in the domain.
+     *
+     * @param member
+     * @param params paramter of the corresponding member
+     * @return response
+     */
 
     def update(Member member, GrailsParameterMap params){
         member.properties=params
@@ -40,6 +52,12 @@ class MemberService {
     def getbyId(Serializable id){ //To get Member by Id
         return Member.get(id)
     }
+
+    /**
+     * list of member
+     * @param params parameter of the corresponding member
+     * @return list of Member
+     */
     def list(GrailsParameterMap params){
         params.max= params.max ?: Globalconfig.itemsPerpage()
         List<Member> memberList = Member.createCriteria().list(params){
@@ -53,6 +71,11 @@ class MemberService {
         return [list:memberList,count:Member.count()]
     }
 
+    /**
+     * delete member
+     * @param member
+     * @return true
+     */
     def delete(Member member){
         member.delete(flush: true)
 
